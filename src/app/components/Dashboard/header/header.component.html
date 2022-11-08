@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <span>Aprendizagem</span>
+    <span class="spacer"></span>
+
+    <div *ngIf="cpfUsuarioLogado" fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="end center">
+        <div>
+            Olá, {{nomeUsuarioLogado}}
+        </div>
+        <div>
+            <button type="button" mat-raised-button (click)="EfetuarLogout()">Logout</button>
+        </div>
+    </div>
+</mat-toolbar>
