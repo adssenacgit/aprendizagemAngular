@@ -1,0 +1,40 @@
+<section class="l-section--timeline">
+  <p-timeline
+    [value]="unidadeCurricular"
+    *ngIf="unidadeCurricular$ | async as unidadeCurricular; else isLoading"
+    align="alternate"
+    styleClass="customized-timeline"
+  >
+    <ng-template pTemplate="marker" let-unidadeCurricular>
+      <span class="custom-marker shadow-2" [style.backgroundColor]="'#3f51b5'">
+        <!-- <span class="custom-marker shadow-2" [style.backgroundColor]="'#3f51b5'" *ngIf="curso.nome === 'Análise e Desenvolvimento de Sistemas'"> -->
+        <i class="pi pi-check"></i>
+      </span>
+    </ng-template>
+
+    <ng-template pTemplate="content" let-unidadeCurricular>
+      <p-card [header]="unidadeCurricular.id" [subheader]="unidadeCurricular.nome">
+        <img
+        *ngIf="unidadeCurricular.codigo"
+        src="http://placeimg.com/980/700/any"
+        [alt]="unidadeCurricular.nomeCurto"
+        width="200"
+        class="shadow-2"
+        />
+        <p>{{ unidadeCurricular.modulo.descricao }}</p>
+        <button
+          pButton
+          [label]="'Ir para ' + unidadeCurricular.nomeCurto.toLowerCase().trim()"
+          class="p-button-text"
+          [routerLink]="['/unidade-curricular/detalhe/', unidadeCurricular.id]"
+        ></button>
+      </p-card>
+    </ng-template>
+  </p-timeline>
+</section>
+
+<ng-template #isLoading>
+  <div class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

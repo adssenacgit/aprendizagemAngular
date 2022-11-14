@@ -1,0 +1,43 @@
+.l-section--timeline{
+    margin: 5rem 0;
+}
+
+.custom-marker {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+::ng-deep .p-timeline-event-content,
+::ng-deep .p-timeline-event-opposite {
+  line-height: 1;
+}
+
+@media screen and (max-width: 960px) {
+  ::ng-deep .customized-timeline .p-timeline-event:nth-child(even) {
+    flex-direction: row !important;
+  }
+  ::ng-deep .customized-timeline .p-timeline-event:nth-child(even) .p-timeline-event-content {
+    text-align: left !important;
+  }
+  ::ng-deep .customized-timeline .p-timeline-event-opposite {
+    flex: 0;
+  }
+  ::ng-deep .customized-timeline .p-card {
+    margin-top: 1rem;
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.15);
+  padding: 2rem;
+  min-height: 100vh;
+}
